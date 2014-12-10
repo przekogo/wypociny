@@ -1,0 +1,10 @@
+.form-control
+{
+  width: 50%;
+  min-width: 350px;
+}
+
+.text-right
+{
+  text-align: right;
+}

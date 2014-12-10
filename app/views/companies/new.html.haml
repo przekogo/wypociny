@@ -1,0 +1,10 @@
+.container
+  %h2 Dane firmy:
+    %div
+      = f.label :company_name
+      = f.text_field :company_name, autofocus: true, class: "form-control"
+      %br/
+    %div
+      = f.label :company_description
+      = f.text_field :company_description, class: "form-control"
+      %br/

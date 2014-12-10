@@ -1,0 +1,16 @@
+.container.text-center
+  - if current_user
+    %h1
+    Witaj, #{current_user.email}
+    %h1
+    Twoje id to: #{current_user.id}
+    %br/
+    %br/
+    .h2.text-center
+    = link_to "Wyloguj się", destroy_user_session_path, method: :delete
+ 
+  - else
+    %h1
+      Witaj, nieznajomy!
+    %h2
+      Serwis dostępny tylko dla zarejestrowanych użytkowników
