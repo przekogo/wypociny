@@ -16,11 +16,21 @@
       %br/
     %div
       = f.label :role
-      = f.text_field :role, class: "form-control"
+      .radios
+        = f.radio_button(:role, "company")
+        = f.label(:role_company, "company")
+        %br/
+        = f.radio_button(:role, "user")
+        = f.label(:role_user, "user")
       %br/
     %div
       = f.label :gender
-      = f.text_field :gender, class: "form-control"
+      .radios
+        = f.radio_button(:gender, "male")
+        = f.label(:gender_male, "male")
+        %br/
+        = f.radio_button(:gender, "female")
+        = f.label(:gender_female, "female")
       %br/
     %div
       = f.label :email

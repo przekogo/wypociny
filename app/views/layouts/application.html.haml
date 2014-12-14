@@ -20,11 +20,16 @@
             %li
               %a{:href => root_path} Home
             %li
-              %a{:href => new_user_registration_path} Rejestracja
-            %li
               %a{:href => new_user_session_path} Logowanie
             %li
-              -if user_signed_in?
+              %a{:href => "#"} Rejestracja
+              %ul
+                %li
+                  %a{:href => new_user_registration_path} Zawodnik
+                %li
+                  %a{:href => new_company_path} Firmoklub
+            -if user_signed_in?
+              %li
                 %a{:href => user_path(current_user.id)} #{current_user.email}
         / /.nav-collapse
     %br/
