@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
 
         validates :name, format: /[A-Z][a-z]*/
 
-        validates :role, inclusion: { in: %w(admin user company)}
+        validates :role, inclusion: { in: %w(admin user)}
 
         validates :gender, inclusion: {in: %w(male female)}
 
@@ -14,6 +14,4 @@ class User < ActiveRecord::Base
         validates :telephone, length: { is: 9 }
 
         validates :name, :surname, :role, :telephone, :gender, presence: true
-
-        has_one :company
 end
