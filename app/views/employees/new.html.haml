@@ -1,0 +1,52 @@
+.container
+  %h2 Sign up
+  = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+    = devise_error_messages!
+    %div
+      = f.label :name
+      = f.text_field :name, autofocus: true, class: "form-control"
+      %br/
+    %div
+      = f.label :surname
+      = f.text_field :surname, class: "form-control"
+      %br/
+    %div
+      = f.label :telephone
+      = f.text_field :telephone, class: "form-control"
+      %br/
+    %div
+      = f.label :role
+      .radios
+        = f.radio_button(:role, "company")
+        = f.label(:role_company, "company")
+        %br/
+        = f.radio_button(:role, "user")
+        = f.label(:role_user, "user")
+      %br/
+    %div
+      = f.label :gender
+      .radios
+        = f.radio_button(:gender, "male")
+        = f.label(:gender_male, "male")
+        %br/
+        = f.radio_button(:gender, "female")
+        = f.label(:gender_female, "female")
+      %br/
+    %div
+      %input.form-control{"data-bv-emailaddress" => "true", "data-bv-emailaddress-message" => "Please enter a valid e-mail adress", "data-bv-notempty" => "true", "data-bv-notempty-message" => "The email address is required and cannot be empty", name: "email", type: "text", placeholder: "Email of invited person", class: 'wide-field'}/
+      = f.label :email
+      = f.email_field :email, class: "form-control"
+    %div
+      = f.label :password
+      = f.password_field :password, autocomplete: "off", class: "form-control"
+    %br/
+    %div
+      = f.label :password_confirmation
+      = f.password_field :password_confirmation, autocomplete: "off", class: "form-control"
+      %br/
+    %div= f.submit "Sign up", class: "btn btn-primary"
+  = render "devise/shared/links"
+:javascript
+  $(document).ready(function() {
+      $('#new_user').bootstrapValidator();
+  });
