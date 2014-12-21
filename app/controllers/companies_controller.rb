@@ -5,19 +5,11 @@ class CompaniesController < ApplicationController
   end
 
   def create
-    @company = Company.new(company_params)
-    @company.user = current_user
-    if @company.save
-       redirect_to root_path, notice: 'Dodano firmę.'
-    else
-      render 'new'
-    end
-  end
-
-private
-
-def company_params
-    params.require(:company).permit(:company_name, :company_description)
+    user = User.new(email: params[:email], password: params[:password])
+    user.role = "company"
+    user.save
+    company = Company.new(company_name: params[:company_name], company_description: params[:company_description], contact_name: params[:contact_name], contact_surname: params[:contact_surname], contact_telephone: params[:contact_telephone], company_address: params[:company_address], company_address2: params[:company_address2],  user_id: User.where(email: params[:email]).last.id)
+    company.save
   end
 
 end

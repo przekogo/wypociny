@@ -1,10 +1,48 @@
 .container
-  %h2 Dane firmy:
-  = form_for(@company) do |f|
-    .form-group
-    = f.label :company_name
-    = f.text_field :company_name, autofocus: true, class: "form-control"
-
-    .form-group
-    = f.label :company_description
-    = f.text_field :company_description, class: "form-control"
+  %h2 Sign up
+  %form#employee-form{action: "/companies/create", method: "post"}
+    =hidden_field_tag "authenticity_token", form_authenticity_token
+    %div
+      %label company name
+      %input.form-control{name: "company_name"}
+      %br/
+    %div
+      %label description
+      %input.form-control{name: "company_description"}
+      %br/
+    %div
+      %label contact name
+      %input.form-control{name: "contact_name"}
+      %br/
+    %div
+      %label contact surname
+      %input.form-control{name: "contact_surname"}
+      %br/
+    %div
+      %label contact telephone
+      %input.form-control{name: "contact_telephone"}
+      %br/
+    %div
+      %label company address
+      %input.form-control{name: "company_address"}
+      %br/
+    %div
+      %label company address2
+      %input.form-control{name: "company_address2"}
+      %br/
+    %div
+      %label email
+      %input.form-control{"data-bv-emailaddress" => "true", "data-bv-emailaddress-message" => "Please enter a valid e-mail adress", "data-bv-notempty" => "true", "data-bv-notempty-message" => "The email address is required and cannot be empty", name: "email", type: "text", placeholder: "Email of invited person", class: 'wide-field'}/
+    %div
+      %label password
+      %input.form-control{autocomplete: "off", name: "password"}
+    %br/
+    %div
+      %label confirm password
+      %input.form-control{autocomplete: "off", name: "confirm-password"}
+      %br/
+    %button.btn.btn-primary{type: "submit"} Register
+:javascript
+  $(document).ready(function() {
+      $('#employee-form').bootstrapValidator();
+  });
