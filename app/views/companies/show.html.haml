@@ -1,0 +1,19 @@
+.container
+  %h1 Dane Firmy:
+  %h3 Nazwa:
+  %h2 #{current_user.company.company_name}
+  %h3 Krótki opis:
+  %h2 #{current_user.company.company_description}
+  %h3 Adres:
+  %h2 #{current_user.company.company_address}
+  %h2 #{current_user.company.company_address2}
+  %h1 Dane do kontaktu:
+  %h3 Imię:
+  %h2 #{current_user.company.contact_name}
+  %h3 Nazwisko:
+  %h2 #{current_user.company.contact_surname}
+  %h3 Email:
+  %h2 #{current_user.email}
+  %h3 Telefon:
+  %h2 #{current_user.company.contact_telephone}
+  %a{:href => edit_user_registration_path} Edytuj
