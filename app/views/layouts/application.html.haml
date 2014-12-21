@@ -5,6 +5,13 @@
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
 
+    / BootstrapValidator requires Bootstrap CSS v3.0.0 or higher
+    %link{:href => "/path/to/bootstrap/css/bootstrap.css", :rel => "stylesheet"}/
+    %link{:href => "/path/to/dist/css/bootstrapValidator.min.css", :rel => "stylesheet"}/
+    / and jQuery v1.9.1 or higher
+    %script{:src => "/path/to/jquery/jquery-1.10.2.min.js", :type => "text/javascript"}
+    %script{:src => "/path/to/bootstrap/js/bootstrap.min.js", :type => "text/javascript"}
+
   %body
     %nav.navbar.navbar-inverse.navbar-fixed-top{:role => "navigation"}
       .container
@@ -25,9 +32,9 @@
               %a{:href => "#"} Rejestracja
               %ul
                 %li
-                  %a{:href => new_user_registration_path} Zawodnik
+                  %a{:href => new_employee_path} Employee
                 %li
-                  %a{:href => new_company_path} Firmoklub
+                  %a{:href => new_company_path} Company
             -if user_signed_in?
               %li
                 %a{:href => user_path(current_user.id)} #{current_user.email}
