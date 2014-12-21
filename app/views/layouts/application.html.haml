@@ -32,9 +32,9 @@
               %a{:href => "#"} Rejestracja
               %ul
                 %li
-                  %a{:href => new_user_registration_path} Zawodnik
+                  %a{:href => new_employee_path} Employee
                 %li
-                  %a{:href => new_company_path} Firmoklub
+                  %a{:href => new_company_path} Company
             -if user_signed_in?
               %li
                 %a{:href => user_path(current_user.id)} #{current_user.email}
