@@ -1,48 +1,39 @@
 .container
   %h2 Sign up
-  %form#employee-form{action: "/companies/create", method: "post"}
+  %form#company-form{action: "/companies/create", method: "post"}
     =hidden_field_tag "authenticity_token", form_authenticity_token
-    %div
+    .form-group
       %label company name
       %input.form-control{name: "company_name"}
-      %br/
-    %div
+    .form-group
       %label description
       %input.form-control{name: "company_description"}
-      %br/
-    %div
+    .form-group
       %label contact name
       %input.form-control{name: "contact_name"}
-      %br/
-    %div
+    .form-group
       %label contact surname
       %input.form-control{name: "contact_surname"}
-      %br/
-    %div
+    .form-group
       %label contact telephone
       %input.form-control{name: "contact_telephone"}
-      %br/
-    %div
+    .form-group
       %label company address
       %input.form-control{name: "company_address"}
-      %br/
-    %div
+    .form-group
       %label company address2
       %input.form-control{name: "company_address2"}
-      %br/
-    %div
+    .form-group
       %label email
       %input.form-control{"data-bv-emailaddress" => "true", "data-bv-emailaddress-message" => "Please enter a valid e-mail adress", "data-bv-notempty" => "true", "data-bv-notempty-message" => "The email address is required and cannot be empty", name: "email", type: "text", placeholder: "Your email address", class: 'wide-field'}/
-    %div
+    .form-group
       %label password
-      %input.form-control{autocomplete: "off", name: "password"}
-    %br/
-    %div
+      %input.form-control{autocomplete: "off", name: "password", type: "password"}
+    .form-group
       %label confirm password
-      %input.form-control{autocomplete: "off", name: "confirm-password"}
-      %br/
+      %input.form-control{autocomplete: "off", name: "confirmPassword", type: "password"}
     %button.btn.btn-primary{type: "submit"} Register
 :javascript
   $(document).ready(function() {
-      $('#employee-form').bootstrapValidator();
+      validate('#company-form');
   });

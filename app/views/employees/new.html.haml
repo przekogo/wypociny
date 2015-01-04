@@ -5,22 +5,18 @@
     .form-group
       %label name
       %input.form-control{name: "name"}
-      %br/
     .form-group
       %label surname
       %input.form-control{name: "surname"}
-      %br/
     .form-group
       %label email
-      %input.form-control{name: "email", type: "email", placeholder: "Your email, also used as login"}/
+      %input.form-control{name: "email", type: "email", placeholder: "Your email, also used as login"}
     .form-group
       %label password
       %input.form-control{autocomplete: "off", name: "password", type: "password"}
-    %br/
     .form-group
       %label confirm password
       %input.form-control{autocomplete: "off", name: "confirmPassword", type: "password"}
-      %br/
     %button.btn.btn-primary{type: "submit"} Register
 :javascript
   $(document).ready(function() {
