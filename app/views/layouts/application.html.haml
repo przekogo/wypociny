@@ -6,6 +6,10 @@
     = csrf_meta_tags
 
   %body
+    - if alert
+      = render  '/layouts/warnings/alert'
+    - elsif notice
+      = render  '/layouts/warnings/notice'
     %nav.navbar.navbar-inverse.navbar-fixed-top{:role => "navigation"}
       .container
         .navbar-header
