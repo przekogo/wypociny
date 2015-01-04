@@ -3,34 +3,35 @@
   %form#company-form{action: "/companies/create", method: "post"}
     =hidden_field_tag "authenticity_token", form_authenticity_token
     .form-group
-      %label company name
+      %label Nazwa firmy
       %input.form-control{name: "company_name"}
     .form-group
-      %label description
+      %label Krótki opis
       %input.form-control{name: "company_description"}
+    %h3 Dane kontaktowe:
     .form-group
-      %label contact name
+      %label Imię
       %input.form-control{name: "contact_name"}
     .form-group
-      %label contact surname
+      %label Nazwisko
       %input.form-control{name: "contact_surname"}
     .form-group
-      %label contact telephone
+      %label Numer telefonu
       %input.form-control{name: "contact_telephone"}
     .form-group
-      %label company address
+      %label Adres
       %input.form-control{name: "company_address"}
     .form-group
-      %label company address2
+      %label Adres 2
       %input.form-control{name: "company_address2"}
     .form-group
-      %label email
+      %label E-mail
       %input.form-control{"data-bv-emailaddress" => "true", "data-bv-emailaddress-message" => "Please enter a valid e-mail adress", "data-bv-notempty" => "true", "data-bv-notempty-message" => "The email address is required and cannot be empty", name: "email", type: "text", placeholder: "Your email address", class: 'wide-field'}/
     .form-group
-      %label password
+      %label Hasło
       %input.form-control{autocomplete: "off", name: "password", type: "password"}
     .form-group
-      %label confirm password
+      %label Potwierdź hasło
       %input.form-control{autocomplete: "off", name: "confirmPassword", type: "password"}
     %button.btn.btn-primary{type: "submit"} Register
 :javascript
