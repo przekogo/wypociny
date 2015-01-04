@@ -12,4 +12,10 @@ class CompaniesController < ApplicationController
     company.save
   end
 
+  def show
+    @company=Company.find(params[:id])
+  end
+
+
+
 end
