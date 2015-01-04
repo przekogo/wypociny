@@ -21,16 +21,20 @@
               %a{:href => root_path} Home
             %li
               %a{:href => new_user_session_path} Logowanie
-            %li
-              %a{:href => "#"} Rejestracja
-              %ul
-                %li
-                  %a{:href => new_employee_path} Employee
-                %li
-                  %a{:href => new_company_path} Company
-            -if user_signed_in?
+            -unless user_signed_in?
               %li
-                %a{:href => "#"} #{current_user.email}
+                %a{:href => "#"} Rejestracja
+                %ul
+                  %li
+                    %a{:href => new_employee_path} Pracownik
+                  %li
+                    %a{:href => new_company_path} Firma
+            -if user_signed_in?
+              %li.stick-right
+                -if current_user.employee_id == nil
+                  =link_to current_user.email, company_path(current_user.company.id)
+                -elsif current_user.company_id == nil
+                  =link_to current_user.email, employee_path(current_user.employee.id)
         / /.nav-collapse
     %br/
     %br/
