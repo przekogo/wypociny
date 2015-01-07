@@ -1,7 +1,7 @@
 RailsAdmin.config do |config|
 
-  config.authorize_with :cancan
-  config.current_user_method &:current_user
+  # config.authorize_with :cancan
+  # config.current_user_method &:current_user
   
   ### Popular gems integration
 
