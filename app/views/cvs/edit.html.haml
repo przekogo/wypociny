@@ -1,0 +1,13 @@
+.container
+  %h3 CV
+  =form_for(@cv) do |c|
+    .form-group
+      =c.label "Data urodzenia"
+      =c.date_field :birthdate, class: "form-control", value: current_user.employee.cv.birthdate
+      =c.label "Miejscowość"
+      =c.text_field :location, class: "form-control", value: current_user.employee.cv.location
+      =c.label "email"
+      =c.text_field :email, class: "form-control", value: current_user.employee.cv.email
+      =c.label "nr telefonu"
+      =c.text_field :telephone, class: "form-control", value: current_user.employee.cv.telephone
+      =c.submit "Dalej", class: "btn btn-submit"

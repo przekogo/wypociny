@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :employees
   resources :companies
   resources :jobs
+  resources :cvs
 
   post 'employees/create'
   post 'companies/create'

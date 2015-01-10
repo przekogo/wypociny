@@ -1,7 +1,7 @@
-.wrapper
+.container
   %h3 Dodaj ofertę
   =form_for(@job) do |j|
     .form-group
-      =j.label :Stanowisko
+      =j.label "Stanowisko"
       =j.text_field :name, class: "form-control"
       =j.submit "Dodaj", class: "btn btn-submit"

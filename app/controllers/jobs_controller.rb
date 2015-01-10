@@ -10,7 +10,7 @@ class JobsController < ApplicationController
   end
   def create
     #tutej sie wpisze co czeba
-    job = Job.new(post_params)
+    job = Job.new(job_params)
     job.company_id = current_user.company_id
     if job.save #i bedzie
       redirect_to company_path(current_user.company_id), notice: "dodano ofertę pracy"
@@ -18,7 +18,7 @@ class JobsController < ApplicationController
   end
   
   private
-  def post_params
+  def job_params
     params.require(:job).permit(:name)
   end
 end

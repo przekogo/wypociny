@@ -4,11 +4,15 @@ class CvsController < ApplicationController
     @cv = Cv.new
   end
 
+  def edit
+    @cv = Cv.find(params[:id])
+  end
+
   def create
     cv = Cv.new(cv_params)
     cv.employee_id = current_user.employee_id
     if cv.save
-      redirect_to root_path, notice: "Utworzono CV"
+      redirect_to cvs_edit_path(cv.id)
     end
   end
 
