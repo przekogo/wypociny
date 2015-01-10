@@ -4,9 +4,9 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-        validates :role, inclusion: { in: %w(admin employee company)}
+  validates :role, inclusion: { in: %w(admin employee company)}
 
-        has_one :employee
-        has_one :company
+  has_one :employee
+  has_one :company
 
 end
