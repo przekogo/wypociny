@@ -45,6 +45,17 @@
                 %li.stick-right
                   =link_to current_user.email, company_path(current_user.company.id)
               -elsif current_user.role == "employee"
+                %li
+                  =link_to "CV", "#"
+                  %ul
+                    -if current_user.employee.cv == nil
+                      %li
+                        =link_to "Dodaj CV", new_cv_path
+                    -else
+                      %li
+                        =link_to "Moje CV", cv_path(current_user.employee.cv.id)
+                      %li
+                        =link_to "Edytuj", edit_cv_path(current_user.employee.cv.id)
                 %li.stick-right
                   =link_to current_user.email, employee_path(current_user.employee.id)
         / /.nav-collapse
