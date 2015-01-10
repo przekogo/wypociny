@@ -34,10 +34,18 @@
                   %li
                     %a{:href => new_company_path} Firma
             -if user_signed_in?
-              %li.stick-right
-                -if current_user.employee_id == nil
+              -if current_user.role == "company"
+                %li
+                  =link_to "Oferty", jobs_path
+                  %ul
+                    %li
+                      =link_to "Dodaj", new_job_path
+                    %li
+                      =link_to "Moje oferty", company_path(current_user.company_id)
+                %li.stick-right
                   =link_to current_user.email, company_path(current_user.company.id)
-                -elsif current_user.company_id == nil
+              -elsif current_user.role == "employee"
+                %li.stick-right
                   =link_to current_user.email, employee_path(current_user.employee.id)
         / /.nav-collapse
     %br/
