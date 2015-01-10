@@ -11,7 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20150107152100) do
+=======
+ActiveRecord::Schema.define(version: 20150107154946) do
+>>>>>>> cv
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,6 +30,14 @@ ActiveRecord::Schema.define(version: 20150107152100) do
     t.string  "contact_telephone"
     t.string  "company_address"
     t.string  "company_address2"
+  end
+
+  create_table "cvs", force: true do |t|
+    t.integer "employee_id"
+    t.date    "birthdate"
+    t.string  "location"
+    t.string  "email"
+    t.string  "telephone"
   end
 
   create_table "employees", force: true do |t|
