@@ -16,7 +16,7 @@ class CompaniesController < ApplicationController
         user.destroy  #W razie błędu w zapisie do bazy usuwamy wszystko.
       end
     end
-    redirect_to new_user_session_path
+    redirect_to new_user_session_path, notice: "Lubisz placki!"
   end
 
   def show
