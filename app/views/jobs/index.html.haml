@@ -1,7 +1,7 @@
 .wrapper
   %h3 Oferty pracy
   %ul
-    -@jobs.each do |job|
+    -@jobs.each do |j|
       %li
-        =job.name
-        =job.company.company_name
+        =link_to j.name, job_path(j.id)
+        =j.company.company_name
