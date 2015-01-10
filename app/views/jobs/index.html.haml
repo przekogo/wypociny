@@ -1,0 +1,7 @@
+.wrapper
+  %h3 Oferty pracy
+  %ul
+    -@jobs.each do |job|
+      %li
+        =job.name
+        =job.company.company_name
