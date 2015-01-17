@@ -1,7 +1,7 @@
 .container
   %h3 Oferty pracy
-  %ul
-    -@jobs.each do |j|
-      %li
-        =link_to j.name, job_path(j.id)
-        =j.company.company_name
+  = form_tag jobs_path, :method => 'get', :id => "jobs_search" do
+    = text_field_tag :search, params[:search], {autocomplete: "off"}
+    = submit_tag "Search", :name => nil
+#joblist
+  =render "jobs"

@@ -1,0 +1,5 @@
+%ul
+  -@jobs.each do |j|
+    %li
+      =link_to j.name, job_path(j.id)
+      =j.company.company_name

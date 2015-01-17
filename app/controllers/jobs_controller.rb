@@ -1,6 +1,6 @@
 class JobsController < ApplicationController
   def index
-    @jobs = Job.all
+    @jobs = Job.search(params[:search])
   end
   def show
     @job = Job.find(params[:id])
@@ -9,10 +9,9 @@ class JobsController < ApplicationController
     @job = Job.new
   end
   def create
-    #tutej sie wpisze co czeba
     job = Job.new(job_params)
     job.company_id = current_user.company_id
-    if job.save #i bedzie
+    if job.save
       redirect_to company_path(current_user.company_id), notice: "dodano ofertę pracy"
     end
   end
