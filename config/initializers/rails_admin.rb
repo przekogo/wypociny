@@ -1,7 +1,20 @@
 RailsAdmin.config do |config|
 
-  # config.authorize_with :cancan
-  # config.current_user_method &:current_user
+def current_admin
+  current_user && current_user.admin
+end
+
+config.current_user_method do 
+  current_admin
+end
+
+config.authenticate_with do
+  warden.authenticate! scope: :user
+end
+
+
+
+
   
   ### Popular gems integration
 
@@ -34,4 +47,6 @@ RailsAdmin.config do |config|
     # history_index
     # history_show
   end
+
+
 end
