@@ -17,7 +17,7 @@ class JobsController < ApplicationController
     job = Job.new(job_params)
     job.company_id = current_user.company_id
     if job.save
-      redirect_to company_path(current_user.company_id), notice: "dodano ofertę pracy"
+      redirect_to edit_job_path(job.id)
     end
   end
   
