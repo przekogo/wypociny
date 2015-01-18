@@ -1,0 +1,21 @@
+#skill-form
+  %h3 Umiejętności
+  -@skills.each do |e|
+    %form{action: "/skills/update", method: "post", "data-remote" => "true"}
+      .form-group.indentleft
+        =hidden_field_tag "authenticity_token", form_authenticity_token
+        =hidden_field_tag  "skill_id", e.id
+        =hidden_field_tag  "cv_id", @cv.id
+        .input-group
+          %input.form-control{name: "name", value: e.name}
+          %span.input-group-btn
+            =link_to 'usuń', {controller: "skills", action: "destroy", id: e.id, cv_id: @cv.id}, method: "delete", data: {confirm: "Na pewno?"}, remote: true, class: "btn btn-delete"
+            %button.btn.btn-primary{type: "submit"} zapisz
+  %form{action: "/skills/create", method: "post", "data-remote" => "true"}
+    .form-group.indentleft
+      =hidden_field_tag "authenticity_token", form_authenticity_token
+      =hidden_field_tag  "cv_id", @cv.id
+      .input-group
+        %input.form-control{name: "name", placeholder: "wpisz nowe umiejętności..."}
+        %span.input-group-btn
+          %button.btn.btn-primary{type: "submit"} dodaj
