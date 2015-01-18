@@ -1,11 +1,11 @@
-class EducationsController < ApplicationController
+class ExperiencesController < ApplicationController
   def create
-    @exp = Education.new(edu_params)
+    @exp = Experience.new(exp_params)
     respond_to do |format|
       if @exp.save
         @cv = Cv.find(params[:cv_id])
-        @education = Education.new
-        @educations = @cv.educations
+        @experience = Experience.new
+        @experiences = @cv.experiences
         format.js
       else
         #redirect_to group_path(background_params[:group_id]) , alert: "Problem adding your background, please try again"
@@ -13,12 +13,12 @@ class EducationsController < ApplicationController
     end
   end
   def update
-    @exp = Education.find(params[:exp_id])
+    @exp = Experience.find(params[:exp_id])
     respond_to do |format|
       if @exp.update(exp_params)
         @cv = Cv.find(params[:cv_id])
-        @education = Education.new
-        @educations = @cv.education
+        @experience = Experience.new
+        @experiences = @cv.experiences
         format.js
       else
         #redirect_to group_path(background_params[:group_id]) , alert: "Problem adding your background, please try again"
@@ -26,18 +26,18 @@ class EducationsController < ApplicationController
     end
   end
   def destroy
-    @exp = Education.find(params[:id])
+    @exp = Experience.find(params[:id])
     @exp.destroy
     respond_to do |format|
       @cv = Cv.find(params[:cv_id])
-      @education = Education.new
-      @educations = @cv.educations
+      @experience = Experience.new
+      @experiences = @cv.experiences
       format.js
     end
   end
 
   private
-    def edu_params
+    def exp_params
       params.permit(:name, :cv_id, :id)
     end
 end

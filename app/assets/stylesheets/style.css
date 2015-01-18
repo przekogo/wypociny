@@ -88,3 +88,18 @@
     bottom: 15px;
     right: 15px;
 }
+
+.indentleft {
+  margin-left:15px;
+}
+.input-group-btn button {
+  width: 80px;
+}
+.indentleft a {
+  color: #ffffff;
+  background: #B40404;
+}
+.indentleft a:hover{
+  color: #ffffff;
+  background: #8A0808;
+}
