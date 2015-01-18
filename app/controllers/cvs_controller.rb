@@ -4,6 +4,10 @@ class CvsController < ApplicationController
     @cv = Cv.new
   end
 
+  def show
+    @cv = Cv.find(params[:id])
+  end
+
   def edit
     @cv = Cv.find(params[:id])
     @experiences = @cv.experiences

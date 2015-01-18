@@ -1,0 +1,50 @@
+.container
+  %h3 Dane osobowe
+  .indentleft
+    %ul
+      %li
+        Imię i nazwisko:
+        =@cv.employee.name
+        =@cv.employee.surname
+      %li
+        Data urodzenia:
+        =@cv.birthdate
+      %li
+        Miejscowość:
+        =@cv.location
+      %li
+        email:
+        =@cv.email
+      %li
+        nr telefonu:
+        =@cv.telephone
+  %h3 Doświadczenie
+  .indentleft
+    %ul
+      -@cv.experiences.each do |e|
+        %li
+          =e.name
+  %h3 Edukacja
+  .indentleft
+    %ul
+      -@cv.educations.each do |e|
+        %li
+          =e.name
+  %h3 Języki
+  .indentleft
+    %ul
+      -@cv.languages.each do |e|
+        %li
+          =e.name
+  %h3 Umiejętności
+  .indentleft
+    %ul
+      -@cv.skills.each do |e|
+        %li
+          =e.name
+  %h3 Zainteresowania
+  .indentleft
+    %ul
+      -@cv.hobbies.each do |e|
+        %li
+          =e.name
