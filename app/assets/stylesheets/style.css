@@ -103,3 +103,6 @@
   color: #ffffff;
   background: #8A0808;
 }
+.input-group {
+  max-width: 50%;
+}

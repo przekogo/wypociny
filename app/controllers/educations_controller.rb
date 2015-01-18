@@ -15,10 +15,10 @@ class EducationsController < ApplicationController
   def update
     @exp = Education.find(params[:edu_id])
     respond_to do |format|
-      if @exp.update(exp_params)
+      if @exp.update(edu_params)
         @cv = Cv.find(params[:cv_id])
         @education = Education.new
-        @educations = @cv.education
+        @educations = @cv.educations
         format.js
       else
         #redirect_to group_path(background_params[:group_id]) , alert: "Problem adding your background, please try again"

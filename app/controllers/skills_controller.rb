@@ -1,6 +1,6 @@
 class SkillsController < ApplicationController
   def create
-    @exp = Skill.new(edu_params)
+    @exp = Skill.new(skill_params)
     respond_to do |format|
       if @exp.save
         @cv = Cv.find(params[:cv_id])
@@ -13,12 +13,12 @@ class SkillsController < ApplicationController
     end
   end
   def update
-    @exp = Skill.find(params[:exp_id])
+    @exp = Skill.find(params[:skill_id])
     respond_to do |format|
-      if @exp.update(exp_params)
+      if @exp.update(skill_params)
         @cv = Cv.find(params[:cv_id])
         @skill = Skill.new
-        @skills = @cv.skill
+        @skills = @cv.skills
         format.js
       else
         #redirect_to group_path(background_params[:group_id]) , alert: "Problem adding your background, please try again"
@@ -37,7 +37,7 @@ class SkillsController < ApplicationController
   end
 
   private
-    def edu_params
+    def skill_params
       params.permit(:name, :cv_id, :id)
     end
 end

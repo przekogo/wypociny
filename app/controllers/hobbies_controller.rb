@@ -1,6 +1,6 @@
 class HobbiesController < ApplicationController
   def create
-    @exp = Hobby.new(edu_params)
+    @exp = Hobby.new(hob_params)
     respond_to do |format|
       if @exp.save
         @cv = Cv.find(params[:cv_id])
@@ -13,12 +13,12 @@ class HobbiesController < ApplicationController
     end
   end
   def update
-    @exp = Hobby.find(params[:exp_id])
+    @exp = Hobby.find(params[:hobby_id])
     respond_to do |format|
-      if @exp.update(exp_params)
+      if @exp.update(hob_params)
         @cv = Cv.find(params[:cv_id])
         @hobby = Hobby.new
-        @hobbies = @cv.hobby
+        @hobbies = @cv.hobbies
         format.js
       else
         #redirect_to group_path(background_params[:group_id]) , alert: "Problem adding your background, please try again"
@@ -37,7 +37,7 @@ class HobbiesController < ApplicationController
   end
 
   private
-    def edu_params
+    def hob_params
       params.permit(:name, :cv_id, :id)
     end
 end

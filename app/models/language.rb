@@ -1,4 +1,4 @@
-class Languages < ActiveRecord::Base
+class Language < ActiveRecord::Base
 
   belongs_to :cv
 

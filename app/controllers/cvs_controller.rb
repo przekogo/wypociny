@@ -12,6 +12,10 @@ class CvsController < ApplicationController
     @education = Education.new
     @languages = @cv.languages
     @language = Language.new
+    @skills = @cv.skills
+    @skill = Skill.new
+    @hobbies = @cv.hobbies
+    @hobby = Hobby.new
   end
 
   def create
@@ -19,6 +23,16 @@ class CvsController < ApplicationController
     cv.employee_id = current_user.employee_id
     if cv.save
       redirect_to cvs_edit_path(cv.id)
+    end
+  end
+
+  def update
+    @cv = Cv.find(params[:cv_id])
+    respond_to do |format|
+      if @cv.update(cv_params)
+        @cv = Cv.find(params[:cv_id])
+        format.js
+      end
     end
   end
 
