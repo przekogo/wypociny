@@ -1,0 +1,21 @@
+#hob-form
+  %h3 Zainteresowania
+  -@hobbies.each do |e|
+    %form{action: "/hobbies/update", method: "post", "data-remote" => "true"}
+      .form-group.indentleft
+        =hidden_field_tag "authenticity_token", form_authenticity_token
+        =hidden_field_tag  "edu_id", e.id
+        =hidden_field_tag  "cv_id", @cv.id
+        .input-group
+          %input.form-control{name: "name", value: e.name}
+          %span.input-group-btn
+            =link_to 'usuń', {controller: "hobbies", action: "destroy", id: e.id, cv_id: @cv.id}, method: "delete", data: {confirm: "Na pewno?"}, remote: true, class: "btn btn-delete"
+            %button.btn.btn-primary{type: "submit"} zapisz
+  %form{action: "/hobbies/create", method: "post", "data-remote" => "true"}
+    .form-group.indentleft
+      =hidden_field_tag "authenticity_token", form_authenticity_token
+      =hidden_field_tag  "cv_id", @cv.id
+      .input-group
+        %input.form-control{name: "name", placeholder: "wpisz nowe zainteresowanie..."}
+        %span.input-group-btn
+          %button.btn.btn-primary{type: "submit"} dodaj
