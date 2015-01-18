@@ -8,6 +8,11 @@ class JobsController < ApplicationController
   def new
     @job = Job.new
   end
+  def edit
+    @job = Job.find(params[:id])
+    @requirements = @job.requirements
+    @requirement = Requirement.new
+  end
   def create
     job = Job.new(job_params)
     job.company_id = current_user.company_id

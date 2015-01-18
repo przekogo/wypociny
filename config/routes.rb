@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   resources :cvs
   resources :experiences
   resources :educations
+  resources :requirements
 
   post 'employees/create'
   post 'companies/create'
@@ -18,6 +19,8 @@ Rails.application.routes.draw do
   post 'experiences/update'
   post 'educations/create'
   post 'educations/update'
+  post 'requirements/create'
+  post 'requirements/update'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
