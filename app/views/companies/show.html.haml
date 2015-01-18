@@ -28,4 +28,4 @@
         -if current_user.company.id == @company.id
           =link_to j.name, edit_job_path(j.id)
         -else
-          =j.name
+          =link_to j.name, job_path(j.id)
