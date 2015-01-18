@@ -1,19 +1,31 @@
 .container
-  %h1 Dane Firmy:
-  %h3 Nazwa:
-  %h2 #{current_user.company.company_name}
-  %h3 Krótki opis:
-  %h2 #{current_user.company.company_description}
-  %h3 Adres:
-  %h2 #{current_user.company.company_address}
-  %h2 #{current_user.company.company_address2}
-  %h1 Dane do kontaktu:
-  %h3 Imię:
-  %h2 #{current_user.company.contact_name}
-  %h3 Nazwisko:
-  %h2 #{current_user.company.contact_surname}
-  %h3 Email:
-  %h2 #{current_user.email}
-  %h3 Telefon:
-  %h2 #{current_user.company.contact_telephone}
-  %a{:href => edit_user_registration_path} Edytuj
+  %h3 Dane Firmy
+  %ul
+    %li
+      Nazwa:
+      =@company.company_name
+    %li
+      Krótki opis:
+      =@company.company_description
+  %h3 Dane kontaktowe
+  %ul
+    %li
+      Imię i nazwisko:
+      =@company.contact_name
+      =@company.contact_surname
+    %li
+      nr telefonu:
+      =@company.contact_telephone
+    %li
+      Adres:
+      =@company.company_address
+      %br/
+      =@company.company_address2
+  %h3 Oferty firmy
+  %ul
+    -@jobs.each do |j|
+      %li.form-inline
+        -if current_user.company.id == @company.id
+          =link_to j.name, edit_job_path(j.id)
+        -else
+          =j.name

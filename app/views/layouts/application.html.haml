@@ -43,7 +43,7 @@
                     %li
                       =link_to "Moje oferty", company_path(current_user.company_id)
                 %li.stick-right
-                  =link_to current_user.email, company_path(current_user.company.id)
+                  =link_to "Wyloguj", destroy_user_session_path, method: :delete
               -elsif current_user.role == "employee"
                 %li
                   =link_to "CV", "#"

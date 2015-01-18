@@ -21,6 +21,7 @@ class CompaniesController < ApplicationController
 
   def show
     @company=Company.find(params[:id])
+    @jobs=Job.all.where(company_id: @company.id)
   end
 
 
