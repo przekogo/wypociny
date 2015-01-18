@@ -8,6 +8,8 @@ class CvsController < ApplicationController
     @cv = Cv.find(params[:id])
     @experiences = @cv.experiences
     @experience = Experience.new
+    @educations = @cv.educations
+    @education = Education.new
   end
 
   def create
