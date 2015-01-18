@@ -26,7 +26,7 @@ class CvsController < ApplicationController
     cv = Cv.new(cv_params)
     cv.employee_id = current_user.employee_id
     if cv.save
-      redirect_to cvs_edit_path(cv.id)
+      redirect_to edit_cv_path(cv.id)
     end
   end
 
