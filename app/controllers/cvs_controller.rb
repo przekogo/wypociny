@@ -10,6 +10,8 @@ class CvsController < ApplicationController
     @experience = Experience.new
     @educations = @cv.educations
     @education = Education.new
+    @languages = @cv.languages
+    @language = Language.new
   end
 
   def create

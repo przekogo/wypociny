@@ -4,12 +4,7 @@ Rails.application.routes.draw do
 
   root 'home#index'
 
-  resources :employees
-  resources :companies
-  resources :jobs
-  resources :cvs
-  resources :experiences
-  resources :educations
+  resources :employees, :companies, :jobs, :cvs, :experiences, :educations, :languages
 
   post 'employees/create'
   post 'companies/create'
@@ -17,6 +12,8 @@ Rails.application.routes.draw do
   post 'experiences/update'
   post 'educations/create'
   post 'educations/update'
+  post 'languages/create'
+  post 'languages/update'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
