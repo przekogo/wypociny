@@ -6,6 +6,8 @@ class CvsController < ApplicationController
 
   def edit
     @cv = Cv.find(params[:id])
+    @experiences = @cv.experiences
+    @experience = Experience.new
   end
 
   def create
