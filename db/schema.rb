@@ -85,17 +85,6 @@ ActiveRecord::Schema.define(version: 20150118111604) do
     t.integer "cv_id"
   end
 
-  create_table "roles", force: true do |t|
-    t.string   "name"
-    t.integer  "resource_id"
-    t.string   "resource_type"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "roles", ["name", "resource_type", "resource_id"], name: "index_roles_on_name_and_resource_type_and_resource_id", using: :btree
-  add_index "roles", ["name"], name: "index_roles_on_name", using: :btree
-
   create_table "skills", force: true do |t|
     t.string  "name"
     t.integer "cv_id"
